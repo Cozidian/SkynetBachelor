@@ -1,1 +1,1 @@
-Init
+Bachelor project, deep learning! 
