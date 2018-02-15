@@ -10,14 +10,13 @@ def twitterfilter(filename, outputpath="filteredtweets/", inputpath="unfilteredt
             if data[i]["user"].lower() != filename.lower():
                 indexs.append(i)
 
-        print("Tweets: " + str(len(data)))
-        print("Tay tweets: " + str(len(data) - len(indexs)))
-        print("Dels: " + str(len(indexs)))
+        print("Total Tweets: " + str(len(data)))
+        print("Deleted tweets: " + str(len(indexs)))
 
         for ind in reversed(indexs):
             del data[ind]
 
-        print("Tweets: " + str(len(data)))
+        print("New Total Tweets: " + str(len(data)))
 
         with open(outputpath + "new" + filename + ".json", "w") as nf:
             json.dump(data, nf)
