@@ -23,7 +23,7 @@ with open("users.txt", "r") as users:
         if line.strip() != "" and not os.path.exists("unfilteredtweets/" + line.strip() + ".json"):
             # print(line)
             outputfile = "unfilteredtweets/" + line.strip() + ".json"
-            subprocess.check_call(["twitterscraper", "-l", "100",  "-o", outputfile, "from%3A" + line.strip()])
+            subprocess.check_call(["twitterscraper", "-l", "100",  "-o", outputfile, line.strip()])
 
             if os.path.exists(outputfile):
                 jsonfilter.twitterfilter((line.strip()))
