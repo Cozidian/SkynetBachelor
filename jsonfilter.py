@@ -2,7 +2,7 @@ import json
 
 
 def twitterfilter(filename, outputpath="filteredtweets/", inputpath="unfilteredtweets/"):
-    with open(inputpath + filename + ".json", "r+") as f:
+    with open(inputpath + filename + ".json", "r") as f:
         data = json.load(f)
         indexs = []
 
