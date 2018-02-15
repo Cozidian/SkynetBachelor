@@ -18,7 +18,7 @@ if not os.path.isdir("unfilteredtweets"):
 if not os.path.isdir("filteredtweets"):
     os.mkdir("filteredtweets")
 
-with open("users2.txt", "r") as users:
+with open("users.txt", "r") as users:
     for line in users:
         if line.strip() != "" and not os.path.exists("unfilteredtweets/" + line.strip() + ".json"):
             # print(line)
