@@ -1,21 +1,23 @@
 import json
 
-with open("billgates.json", "r+") as f:
-    data = json.load(f)
-    indexs = []
 
-    for i in range(0, len(data)):
-        if(data[i]["user"].lower() != "billgates"):
-            indexs.append(i)
+def twitterfilter(filename, outputpath="filteredtweets/", inputpath="unfilteredtweets/"):
+    with open(inputpath + filename + ".json", "r+") as f:
+        data = json.load(f)
+        indexs = []
 
-    print("Tweets: " + str(len(data)))
-    print("Tay tweets: " + str(len(data) - len(indexs)))
-    print("Dels: " + str(len(indexs)))
+        for i in range(0, len(data)):
+            if data[i]["user"].lower() != filename.lower():
+                indexs.append(i)
 
-    for ind in reversed(indexs):
-        del data[ind]
+        print("Tweets: " + str(len(data)))
+        print("Tay tweets: " + str(len(data) - len(indexs)))
+        print("Dels: " + str(len(indexs)))
 
-    print("Tweets: " + str(len(data)))
+        for ind in reversed(indexs):
+            del data[ind]
 
-    with open("newgates.json", "w") as nf:
-        json.dump(data, nf)
+        print("Tweets: " + str(len(data)))
+
+        with open(outputpath + "new" + filename + ".json", "w") as nf:
+            json.dump(data, nf)
