@@ -1,1 +1,1 @@
-Bachelor project, deep learning! 
+Bachelor project, deep learning, using Keras! 
